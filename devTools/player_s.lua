@@ -4,3 +4,14 @@ RegisterCommand('getplayers', function()
         print("Player Id: " .. player .. " | Player Name: " .. GetPlayerName(player))
     end
 end)
+
+if GetConvar("onesync_enabled", "0") == "1" then
+    RegisterCommand("getCoords", function(source, args)
+        local pList = GetPlayers()
+        for _, pid in pairs(pList) do
+            local ped = GetPlayerPed(pid)
+            local coords = GetEntityCoords(ped)
+            print(coords)
+        end
+    end)
+end
