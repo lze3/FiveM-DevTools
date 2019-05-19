@@ -1,6 +1,7 @@
-function ChatMessage(message)
+function ChatMessage(message, color)
     TriggerEvent("chat:addMessage", {
-        args = {message}
+        args = {message},
+        color = color or {255, 255, 255}
     })
 end
 
